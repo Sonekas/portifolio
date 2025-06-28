@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedro Henrique - Portfólio </title>
+    <link rel="stylesheet" href="css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="corporate-mode">
+    <header class="corporate-header">
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="corporate-main">
+        <section id="home" class="hero-section">
+            <h1>Pedro Henrique Cunha Amancio Silva</h1>
+            <h1> <span>&lt;</span>DEVELOPER<span>/&gt;</span> </h1>
+        </section>
+
+        <section id="sobre" class="about-section">
+            <h2>Sobre Mim</h2>
+            <p>Trabalhei como Técnico Administrativo na Secretaria de Saúde do GDF. Ao me deparar com as demandas do
+                serviço administrativo, percebi a necessidade de soluções mais eficientes e práticas, o que me
+                impulsionou para o mundo da programação. Atualmente, estou em transição para me tornar um desenvolvedor,
+                focado em criar soluções claras e acessíveis para todos.</p>
+        </section>
+
+        <section id="projetos" class="projects-section">
+            <h2>Meus Projetos</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Sistema de Gestão de Tarefas</h3>
+                    <p>Este projeto é um sistema web para organizar e gerenciar tarefas diárias, ajudando a otimizar a
+                        produtividade. Foi uma experiência fundamental para aplicar conceitos de banco de dados e
+                        interação com o usuário.</p>
+                    <a href="#" class="btn">Ver Detalhes</a>
+                </div>
+                <div class="project-card">
+                    <h3>Aplicativo de Previsão do Tempo</h3>
+                    <p>Desenvolvi este aplicativo para fornecer previsões do tempo em tempo real, utilizando APIs
+                        externas. É uma demonstração de como a tecnologia pode simplificar o acesso a informações úteis
+                        e complexas.</p>
+                    <a href="#" class="btn">Ver Detalhes</a>
+                </div>
+                <div class="project-card">
+                    <h3>Plataforma de Blog Pessoal</h3>
+                    <p>Criei uma plataforma de blog simples e responsiva, onde posso compartilhar artigos e
+                        conhecimentos. Este projeto me permitiu aprofundar em design responsivo e gerenciamento de
+                        conteúdo.</p>
+                    <a href="#" class="btn">Ver Detalhes</a>
+                </div>
+                <!-- Adicione mais cards de projeto conforme necessário -->
+            </div>
+        </section>
+
+        <section id="contato" class="contact-section">
+            <h2>Contato</h2>
+            <p>Fique à vontade para entrar em contato!</p>
+            <ul>
+                <li>Email: <a href="mailto:pedrohenriqueamancio@gmail.com">pedrohenriqueamancio@gmail.com</a></li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/in/pedrohenriqueamancio/" target="_blank">Pedro Henrique
+                        no LinkedIn</a></li>
+                <li>GitHub: <a href="https://github.com/seu-usuario" target="_blank">Pedro Henrique no GitHub</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Nova Seção para Projetos no Modo Hacker -->
+    <section id="hacker-projects" class="hacker-projects-section">
+        <h2>Projetos Técnicos</h2>
+        <div class="hacker-project-grid" id="hacker-project-grid">
+            <!-- Projetos serão injetados aqui via JavaScript -->
+        </div>
+    </section>
+
+    <footer class="terminal-footer">
+        <pre>&gt; Acesso restrito. Deseja continuar? [S/N]</pre>
+    </footer>
+
+    <div id="hacker-terminal-overlay" class="hacker-terminal-overlay">
+        <div id="hacker-terminal" class="hacker-terminal-container">
+            <div class="terminal-header">
+                <span>Terminal de Acesso</span>
+                <button id="exit-hacker-mode">X</button>
+            </div>
+            <div class="terminal-output" id="terminal-output">
+                <pre>Bem-vindo ao sistema. Digite 'help' para ver os comandos.</pre>
+            </div>
+            <div class="terminal-input">
+                <pre>&gt; </pre><input type="text" id="terminal-command" autofocus>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
