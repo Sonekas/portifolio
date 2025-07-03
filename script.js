@@ -524,6 +524,21 @@ Comandos sugeridos:
         }
     }
 
+    // --- Função para Barras de Habilidade ---
+    function setupSkillBars() {
+        const skillItems = document.querySelectorAll('.hacker-skill-item');
+        skillItems.forEach(item => {
+            const text = item.textContent;
+            // Encontra o número da porcentagem no texto do item
+            const percentageMatch = text.match(/(\d+)%/);
+            if (percentageMatch && percentageMatch[1]) {
+                const percentage = percentageMatch[1];
+                // Aplica um fundo gradiente que simula a barra de progresso
+                item.style.background = `linear-gradient(to right, var(--hacker-skill-bar-color) ${percentage}%, var(--hacker-secondary) ${percentage}%)`;
+            }
+        });
+    }
+
     // --- Scroll Reveal Animation ---
     function revealOnScroll() {
         const reveals = document.querySelectorAll('.project-card, .timeline-item, .stat-item, .contact-item');
@@ -588,6 +603,7 @@ Comandos sugeridos:
     initScrollReveal();
     adjustForMobile();
     revealOnScroll(); // Verificar elementos já visíveis
+    setupSkillBars(); // Ativa as barras de habilidade dinâmicas
 
     // Scroll para o topo ao carregar
     window.scrollTo(0, 0);
