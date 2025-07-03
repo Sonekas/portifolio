@@ -7,6 +7,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const terminalCommandInput = document.getElementById('terminal-command');
     const hackerProjectGrid = document.getElementById('hacker-project-grid');
 
+    // Elementos do menu móvel
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+
+    // --- Funcionalidade do Menu Móvel ---
+    mobileMenuToggle.addEventListener('click', () => {
+        mobileMenuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Fechar menu ao clicar em um link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+
+    // Fechar menu ao clicar fora dele
+    document.addEventListener('click', (event) => {
+        if (!event.target.closest('.corporate-header') && navMenu.classList.contains('active')) {
+            mobileMenuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+    });
+
     // --- Dados para os Projetos ---
     const projectsData = [
         {
@@ -198,4 +225,52 @@ exit        - Volta para o modo corporativo.
 
     // Rola para o topo ao carregar a página (para garantir que o header esteja visível)
     window.scrollTo(0, 0);
+
+    // --- Melhorias para Dispositivos Móveis ---
+
+    // Prevenir zoom em inputs no iOS
+    const inputs = document.querySelectorAll('input[type="text"], input[type="email"]');
+    inputs.forEach(input => {
+        input.addEventListener('focus', () => {
+            if (window.innerWidth <= 768) {
+                setTimeout(() => {
+                    input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            }
+        });
+    });
+
+    // Melhorar experiência do terminal em dispositivos móveis
+    if (window.innerWidth <= 768) {
+        terminalCommandInput.addEventListener('focus', () => {
+            // Garantir que o terminal esteja visível quando o input receber foco
+            if (!hackerTerminalOverlay.classList.contains('visible')) {
+                hackerTerminalOverlay.classList.add('visible');
+            }
+        });
+    }
+
+    // Ajustar altura do terminal baseado na orientação do dispositivo
+    function adjustTerminalHeight() {
+        if (window.innerWidth <= 768) {
+            if (window.innerHeight < window.innerWidth) {
+                // Landscape
+                document.documentElement.style.setProperty('--terminal-height', '50vh');
+            } else {
+                // Portrait
+                document.documentElement.style.setProperty('--terminal-height', '60vh');
+            }
+        }
+    }
+
+    // Ajustar na mudança de orientação
+    window.addEventListener('orientationchange', () => {
+        setTimeout(adjustTerminalHeight, 100);
+    });
+
+    // Ajustar no redimensionamento da janela
+    window.addEventListener('resize', adjustTerminalHeight);
+
+    // Ajustar inicialmente
+    adjustTerminalHeight();
 });
