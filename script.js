@@ -84,21 +84,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Simular envio do formulário
+            e.preventDefault(); // Impede o recarregamento da página
+
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
-            
+            const formData = new FormData(contactForm);
+
             submitBtn.textContent = 'Enviando...';
             submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                alert('Mensagem enviada com sucesso! Entrarei em contato em breve.');
-                contactForm.reset();
+
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    alert('Mensagem enviada com sucesso! Entrarei em contato em breve.');
+                    contactForm.reset();
+                } else {
+                    alert('Ocorreu um erro ao enviar a mensagem. Tente novamente.');
+                }
+            }).finally(() => {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
-            }, 2000);
+            });
         });
     }
 
@@ -289,27 +300,25 @@ Dica: Use as setas ↑↓ para navegar no histórico de comandos.
         if (body.classList.contains('hacker-mode')) {
             return;
         }
-        
         // Adicionar efeito de transição
         body.style.transition = 'all 0.8s ease';
         body.classList.remove('corporate-mode');
         body.classList.add('hacker-mode');
-        
         // Exibir o terminal automaticamente
         setTimeout(() => {
             hackerTerminalOverlay.classList.add('visible');
-            terminalCommandInput.focus();
+            hackerTerminalOverlay.classList.add('minimized'); // Começa minimizado
+            // terminalCommandInput.focus(); // Só foca quando maximizar
             terminalOutput.scrollTop = terminalOutput.scrollHeight;
-            
             // Mensagem de boas-vindas no modo hacker
             terminalOutput.innerHTML += `<pre style="color: #00BFFF;">
 ╔══════════════════════════════════════════════════════════════╗
-║                    MODO HACKER ATIVADO                      ║
-║                                                              ║
-║  Bem-vindo ao terminal de acesso técnico!                   ║
-║  Digite 'help' para ver todos os comandos disponíveis.      ║
-║                                                              ║
-║  Pressione 'exit' para retornar ao modo corporativo.        ║
+║                    MODO HACKER ATIVADO                  ║
+║                                                         ║
+║  Bem-vindo ao terminal de acesso técnico!               ║
+║  Digite 'help' para ver todos os comandos disponíveis.  ║
+║                                                         ║
+║  Pressione 'exit' para retornar ao modo corporativo.    ║
 ╚══════════════════════════════════════════════════════════════╝
 </pre>`;
             terminalOutput.scrollTop = terminalOutput.scrollHeight;
@@ -592,4 +601,3 @@ Comandos sugeridos:
     console.log('💡 Pressione "S" para ativar o modo hacker');
     console.log('🔧 Desenvolvido por Pedro Henrique');
 });
-
