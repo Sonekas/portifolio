@@ -531,7 +531,7 @@ body.hacker-mode .hacker-projects-section {
     /* Acima de tudo */
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
     /* Não bloqueia cliques quando invisível */
 }
@@ -542,6 +542,30 @@ body.hacker-mode .hacker-projects-section {
     visibility: visible;
     pointer-events: auto;
     /* Permite cliques quando visível */
+}
+
+.hacker-terminal-overlay.minimized {
+    height: 40px !important;
+    min-height: 0 !important;
+    opacity: 0.7;
+    pointer-events: auto;
+}
+
+.hacker-terminal-overlay.minimized .hacker-terminal-container {
+    pointer-events: none;
+}
+
+.hacker-terminal-overlay.minimized .terminal-header {
+    pointer-events: auto;
+}
+
+.hacker-terminal-overlay.minimized .terminal-output,
+.hacker-terminal-overlay.minimized .terminal-input {
+    display: none;
+}
+
+.hacker-terminal-overlay.minimized .terminal-header {
+    border-radius: 0 0 8px 8px;
 }
 
 .hacker-terminal-container {
