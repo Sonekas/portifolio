@@ -490,10 +490,10 @@ Role para cima na interface para ver os projetos técnicos visuais.`;
                 
             case 'exit':
             case 'quit':
-                output = 'Saindo do modo hacker... Retornando ao modo corporativo.';
+                output = 'Saindo do modo hacker... Retornando ao Inicio.';
                 setTimeout(() => {
                     exitHackerMode();
-                }, 1500);
+                }, 2000);
                 break;
                 
             case 'whoami':
