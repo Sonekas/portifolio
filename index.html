@@ -1,16 +1,17 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedro Henrique - Portfólio </title>
-    <link rel="stylesheet" href="css/style.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
-        rel="stylesheet">
+    <title>Pedro Henrique - Portfólio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body class="corporate-mode">
+    <!-- Header Corporativo -->
     <header class="corporate-header">
         <nav>
             <div class="nav-container">
@@ -25,6 +26,7 @@
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="#home">Início</a></li>
                     <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#experiencia">Experiência</a></li>
                     <li><a href="#projetos">Projetos</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
@@ -32,72 +34,359 @@
         </nav>
     </header>
 
+    <!-- Conteúdo Principal Corporativo -->
     <main class="corporate-main">
+        <!-- Seção Início -->
         <section id="home" class="hero-section">
-            <h1>Pedro Henrique Cunha Amancio Silva</h1>
-            <h1> <span>&lt;</span>DEVELOPER<span>/&gt;</span> </h1>
-        </section>
-
-        <section id="sobre" class="about-section">
-            <h2>Sobre Mim</h2>
-            <p>Trabalhei como Técnico Administrativo na Secretaria de Saúde do GDF. Ao me deparar com as demandas do
-                serviço administrativo, percebi a necessidade de soluções mais eficientes e práticas, o que me
-                impulsionou para o mundo da programação. Atualmente, estou em transição para me tornar um desenvolvedor,
-                focado em criar soluções claras e acessíveis para todos.</p>
-        </section>
-
-        <section id="projetos" class="projects-section">
-            <h2>Meus Projetos</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>Sistema de Gestão de Tarefas</h3>
-                    <p>Este projeto é um sistema web para organizar e gerenciar tarefas diárias, ajudando a otimizar a
-                        produtividade. Foi uma experiência fundamental para aplicar conceitos de banco de dados e
-                        interação com o usuário.</p>
-                    <a href="#" class="btn">Ver Detalhes</a>
+            <div class="hero-content">
+                <h1>Pedro Henrique Cunha Amancio Silva</h1>
+                <h2 class="hero-subtitle">
+                    <span class="bracket">&lt;</span>
+                    <span class="developer-text">DEVELOPER</span>
+                    <span class="bracket">/&gt;</span>
+                </h2>
+                <p class="hero-description">Desenvolvedor em transição, focado em criar soluções eficientes e acessíveis</p>
+                <div class="hero-buttons">
+                    <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+                    <a href="#contato" class="btn btn-secondary">Contato</a>
                 </div>
-                <div class="project-card">
-                    <h3>Aplicativo de Previsão do Tempo</h3>
-                    <p>Desenvolvi este aplicativo para fornecer previsões do tempo em tempo real, utilizando APIs
-                        externas. É uma demonstração de como a tecnologia pode simplificar o acesso a informações úteis
-                        e complexas.</p>
-                    <a href="#" class="btn">Ver Detalhes</a>
-                </div>
-                <div class="project-card">
-                    <h3>Plataforma de Blog Pessoal</h3>
-                    <p>Criei uma plataforma de blog simples e responsiva, onde posso compartilhar artigos e
-                        conhecimentos. Este projeto me permitiu aprofundar em design responsivo e gerenciamento de
-                        conteúdo.</p>
-                    <a href="#" class="btn">Ver Detalhes</a>
-                </div>
-                <!-- Adicione mais cards de projeto conforme necessário -->
             </div>
         </section>
 
+        <!-- Seção Sobre Mim -->
+        <section id="sobre" class="about-section">
+            <div class="container">
+                <h2>Sobre Mim</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Trabalhei como Técnico Administrativo na Secretaria de Saúde do GDF. Ao me deparar com as demandas do serviço administrativo, percebi a necessidade de soluções mais eficientes e práticas, o que me impulsionou para o mundo da programação.</p>
+                        <p>Atualmente, estou em transição para me tornar um desenvolvedor, focado em criar soluções claras e acessíveis para todos. Minha experiência administrativa me deu uma perspectiva única sobre as necessidades reais dos usuários e a importância de sistemas bem estruturados.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Experiência Profissional -->
+        <section id="experiencia" class="experience-section">
+            <div class="container">
+                <h2>Experiência Profissional</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Técnico Administrativo</h3>
+                            <h4>Secretaria de Saúde do GDF</h4>
+                            <span class="timeline-date">2020 - 2024</span>
+                            <p>Responsável por processos administrativos, análise de documentos e atendimento ao público. Identificação de oportunidades de melhoria em sistemas e processos, o que despertou meu interesse pela programação.</p>
+                            <ul class="timeline-skills">
+                                <li>Gestão de processos</li>
+                                <li>Análise de dados</li>
+                                <li>Atendimento ao cliente</li>
+                                <li>Organização de documentos</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Desenvolvedor em Formação</h3>
+                            <h4>Estudos Autodidatas e Cursos</h4>
+                            <span class="timeline-date">2022 - Presente</span>
+                            <p>Transição de carreira para desenvolvimento de software, com foco em tecnologias web e backend. Desenvolvimento de projetos pessoais e participação em comunidades de programação.</p>
+                            <ul class="timeline-skills">
+                                <li>Python</li>
+                                <li>JavaScript</li>
+                                <li>HTML/CSS</li>
+                                <li>SQL</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Projetos -->
+        <section id="projetos" class="projects-section">
+            <div class="container">
+                <h2>Meus Projetos</h2>
+                <div class="projects-filter">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="web">Web</button>
+                    <button class="filter-btn" data-filter="python">Python</button>
+                    <button class="filter-btn" data-filter="javascript">JavaScript</button>
+                </div>
+                <div class="project-grid">
+                    <div class="project-card" data-category="web python">
+                        <div class="project-image">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Sistema de Gestão de Tarefas</h3>
+                            <p>Sistema web para organizar e gerenciar tarefas diárias, com interface intuitiva e funcionalidades de produtividade.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Django</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small">Ver Projeto</a>
+                                <a href="#" class="btn btn-small btn-outline">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="javascript web">
+                        <div class="project-image">
+                            <i class="fas fa-cloud-sun"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Aplicativo de Previsão do Tempo</h3>
+                            <p>Aplicativo web que fornece previsões meteorológicas em tempo real utilizando APIs externas.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">HTML/CSS</span>
+                                <span class="tech-tag">API</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small">Ver Projeto</a>
+                                <a href="#" class="btn btn-small btn-outline">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="web javascript">
+                        <div class="project-image">
+                            <i class="fas fa-blog"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Plataforma de Blog Pessoal</h3>
+                            <p>Plataforma responsiva para publicação de artigos e compartilhamento de conhecimentos técnicos.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small">Ver Projeto</a>
+                                <a href="#" class="btn btn-small btn-outline">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Contato -->
         <section id="contato" class="contact-section">
-            <h2>Contato</h2>
-            <p>Fique à vontade para entrar em contato!</p>
-            <ul>
-                <li>Email: <a href="mailto:pedrohenriqueamancio@gmail.com">pedrohenriqueamancio@gmail.com</a></li>
-                <li>LinkedIn: <a href="https://www.linkedin.com/in/pedrohenriqueamancio/" target="_blank">Pedro Henrique
-                        no LinkedIn</a></li>
-                <li>GitHub: <a href="https://github.com/seu-usuario" target="_blank">Pedro Henrique no GitHub</a></li>
-            </ul>
+            <div class="container">
+                <h2>Entre em Contato</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Vamos conversar!</h3>
+                        <p>Estou sempre aberto a novas oportunidades e colaborações. Entre em contato comigo através dos canais abaixo.</p>
+                        <div class="contact-items">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <span class="contact-label">Email</span>
+                                    <a href="mailto:pedrohenriqueamancio@gmail.com">pedrohenriqueamancio@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-linkedin"></i>
+                                <div>
+                                    <span class="contact-label">LinkedIn</span>
+                                    <a href="https://www.linkedin.com/in/pedrohenriqueamancio/" target="_blank">Pedro Henrique no LinkedIn</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-github"></i>
+                                <div>
+                                    <span class="contact-label">GitHub</span>
+                                    <a href="https://github.com/seu-usuario" target="_blank">Pedro Henrique no GitHub</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-whatsapp"></i>
+                                <div>
+                                    <span class="contact-label">WhatsApp</span>
+                                    <a href="https://wa.me/5561998495245" target="_blank">(61) 9849-5245</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contact-form" action="https://formspree.io/f/SEU_CODIGO_AQUI" method="POST">
+                            <div class="form-group">
+                                <label for="name">Nome</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Assunto</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Mensagem</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
-    <!-- Nova Seção para Projetos no Modo Hacker -->
-    <section id="hacker-projects" class="hacker-projects-section">
-        <h2>Projetos Técnicos</h2>
-        <div class="hacker-project-grid" id="hacker-project-grid">
-            <!-- Projetos serão injetados aqui via JavaScript -->
+    <!-- Seção Hacker (Oculta por padrão) -->
+    <section id="hacker-content" class="hacker-content">
+        <!-- Habilidades no Modo Hacker -->
+        <div class="hacker-section" id="hacker-habilidades">
+            <h2>Habilidades Técnicas</h2>
+            <div class="hacker-skills-grid">
+                <div class="hacker-skill-category">
+                    <h3>Linguagens de Programação</h3>
+                    <div class="hacker-skill-list">
+                        <div class="hacker-skill-item">Python - 85%</div>
+                        <div class="hacker-skill-item">JavaScript - 80%</div>
+                        <div class="hacker-skill-item">HTML/CSS - 90%</div>
+                        <div class="hacker-skill-item">Java - 75%</div>
+                        <div class="hacker-skill-item">SQL - 70%</div>
+                    </div>
+                </div>
+                <div class="hacker-skill-category">
+                    <h3>Frameworks & Tecnologias</h3>
+                    <div class="hacker-skill-list">
+                        <div class="hacker-skill-item">Django - 80%</div>
+                        <div class="hacker-skill-item">React - 75%</div>
+                        <div class="hacker-skill-item">Node.js - 70%</div>
+                        <div class="hacker-skill-item">PostgreSQL - 75%</div>
+                        <div class="hacker-skill-item">Git - 85%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tecnologias no Modo Hacker -->
+        <div class="hacker-section" id="hacker-tecnologias">
+            <h2>Tecnologias & Ferramentas</h2>
+            <div class="hacker-tech-grid">
+                <div class="hacker-tech-category">
+                    <h3>Backend</h3>
+                    <div class="hacker-tech-list">
+                        <span class="hacker-tech-item">Python</span>
+                        <span class="hacker-tech-item">Django</span>
+                        <span class="hacker-tech-item">Node.js</span>
+                        <span class="hacker-tech-item">PostgreSQL</span>
+                        <span class="hacker-tech-item">MongoDB</span>
+                    </div>
+                </div>
+                <div class="hacker-tech-category">
+                    <h3>Frontend</h3>
+                    <div class="hacker-tech-list">
+                        <span class="hacker-tech-item">JavaScript</span>
+                        <span class="hacker-tech-item">React</span>
+                        <span class="hacker-tech-item">HTML5</span>
+                        <span class="hacker-tech-item">CSS3</span>
+                        <span class="hacker-tech-item">Bootstrap</span>
+                    </div>
+                </div>
+                <div class="hacker-tech-category">
+                    <h3>Ferramentas</h3>
+                    <div class="hacker-tech-list">
+                        <span class="hacker-tech-item">Git</span>
+                        <span class="hacker-tech-item">VS Code</span>
+                        <span class="hacker-tech-item">Docker</span>
+                        <span class="hacker-tech-item">Postman</span>
+                        <span class="hacker-tech-item">Linux</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Áreas de Interesse no Modo Hacker -->
+        <div class="hacker-section" id="hacker-interesses">
+            <h2>Áreas de Interesse</h2>
+            <div class="hacker-interests-grid">
+                <div class="hacker-interest-item">
+                    <h3>Desenvolvimento Web</h3>
+                    <p>Criação de aplicações web modernas e responsivas</p>
+                </div>
+                <div class="hacker-interest-item">
+                    <h3>Backend Development</h3>
+                    <p>APIs RESTful, microserviços e arquitetura de sistemas</p>
+                </div>
+                <div class="hacker-interest-item">
+                    <h3>Automação</h3>
+                    <p>Scripts e ferramentas para otimização de processos</p>
+                </div>
+                <div class="hacker-interest-item">
+                    <h3>Data Science</h3>
+                    <p>Análise de dados e machine learning</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projetos Técnicos no Modo Hacker -->
+        <div class="hacker-section" id="hacker-projetos">
+            <h2>Projetos Técnicos</h2>
+            <div class="hacker-project-grid">
+                <div class="hacker-project-card">
+                    <h3>Sistema de Gestão de Tarefas</h3>
+                    <p>Sistema web completo para gerenciamento de tarefas com autenticação, CRUD e dashboard.</p>
+                    <div class="tech-icons-container">
+                        <span class="tech-icon python" title="Python"></span>
+                        <span class="tech-icon django" title="Django"></span>
+                        <span class="tech-icon postgresql" title="PostgreSQL"></span>
+                        <span class="tech-icon html" title="HTML"></span>
+                        <span class="tech-icon css" title="CSS"></span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" target="_blank">Demo</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="hacker-project-card">
+                    <h3>API de Previsão do Tempo</h3>
+                    <p>API RESTful que integra múltiplas fontes de dados meteorológicos com cache e rate limiting.</p>
+                    <div class="tech-icons-container">
+                        <span class="tech-icon javascript" title="JavaScript"></span>
+                        <span class="tech-icon nodejs" title="Node.js"></span>
+                        <span class="tech-icon api" title="API"></span>
+                        <span class="tech-icon html" title="HTML"></span>
+                        <span class="tech-icon css" title="CSS"></span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" target="_blank">Demo</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="hacker-project-card">
+                    <h3>Blog Platform</h3>
+                    <p>Plataforma de blog com sistema de comentários, tags e busca avançada.</p>
+                    <div class="tech-icons-container">
+                        <span class="tech-icon react" title="React"></span>
+                        <span class="tech-icon nodejs" title="Node.js"></span>
+                        <span class="tech-icon firebase" title="Firebase"></span>
+                        <span class="tech-icon html" title="HTML"></span>
+                        <span class="tech-icon css" title="CSS"></span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" target="_blank">Demo</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="terminal-footer">
+    <!-- Rodapé Terminal -->
+    <footer class="terminal-footer" id="terminal-footer">
         <pre>&gt; Acesso restrito. Deseja continuar? [S/N]</pre>
     </footer>
 
+    <!-- Terminal Hacker -->
     <div id="hacker-terminal-overlay" class="hacker-terminal-overlay">
         <div id="hacker-terminal" class="hacker-terminal-container">
             <div class="terminal-header">
@@ -113,7 +402,7 @@
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
