@@ -681,6 +681,13 @@ body.hacker-mode::before {
 
 /* Responsividade */
 @media (max-width: 768px) {
+    body.hacker-mode .corporate-header {
+        display: none !important;
+    }
+
+    body.corporate-mode .corporate-header {
+        display: block !important;
+    }
 
     /* Navegação */
     .corporate-header {
@@ -892,11 +899,6 @@ body.hacker-mode::before {
     .terminal-footer pre {
         font-size: 0.8em;
         text-align: center;
-    }
-
-    body.hacker-mode .corporate-header {
-        background-color: var(--hacker-terminal-bg);
-        border-bottom: 1px solid var(--hacker-terminal-border);
     }
 
     body.hacker-mode .nav-brand {
