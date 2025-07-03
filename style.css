@@ -960,6 +960,7 @@ body.hacker-mode .terminal-footer {
 
 /* Terminal Hacker */
 .hacker-terminal-overlay {
+    display: none;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -973,7 +974,10 @@ body.hacker-mode .terminal-footer {
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: none;
+}
+
+body.hacker-mode .hacker-terminal-overlay {
+    display: flex;
 }
 
 .hacker-terminal-overlay.visible {
