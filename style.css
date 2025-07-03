@@ -258,14 +258,12 @@ h2::after {
     font-size: 1rem;
 }
 
-/* Aumentamos a especificidade adicionando "body.corporate-mode" */
 body.corporate-mode .btn-primary {
     background: linear-gradient(45deg, var(--corporate-primary), var(--corporate-accent));
-    color: #FFFFFF; /* Agora a cor branca será aplicada corretamente */
+    color: #FFFFFF;
     box-shadow: 0 4px 15px rgb(135, 189, 252);
 }
 
-/* Também ajustamos o seletor do hover para manter a consistência */
 body.corporate-mode .btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(167, 207, 250, 0.356);
@@ -667,7 +665,7 @@ body.hacker-mode .hacker-content {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
-    padding-bottom: 50vh;
+    padding-bottom: 0;
 }
 
 .hacker-content {
@@ -802,7 +800,7 @@ body.hacker-mode .hacker-content {
     display: flex;
     overflow-x: auto;
     gap: 25px;
-    padding-bottom: 20px;
+    padding: 20px;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -832,7 +830,7 @@ body.hacker-mode .hacker-content {
 
 .hacker-project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
 }
 
 .hacker-project-card h3 {
@@ -1243,7 +1241,7 @@ body.hacker-mode::before {
     }
 
     body.hacker-mode {
-        padding-bottom: 60vh;
+        padding-bottom: 0;
     }
 }
 
@@ -1270,7 +1268,7 @@ body.hacker-mode::before {
     }
 
     body.hacker-mode {
-        padding-bottom: 70vh;
+        padding-bottom: 0;
     }
 }
 
