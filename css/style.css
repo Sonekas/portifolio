@@ -275,7 +275,10 @@ h2 {
 
 /* Estilos do Modo Hacker */
 body.hacker-mode {
-    background-color: var(--hacker-bg);
+    background-color: var(--hacker-bg) !important;
+    min-height: 100vh;
+    padding-top: 0 !important;
+    margin: 0 !important;
     color: var(--hacker-text);
     overflow-y: auto;
     /* Permite scroll no modo hacker */
@@ -319,6 +322,8 @@ body.hacker-mode .terminal-footer {
     margin: 2rem auto;
     padding: 40px 20px;
     color: var(--hacker-text);
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
 
 body.hacker-mode .hacker-projects-section {
@@ -333,6 +338,8 @@ body.hacker-mode .hacker-projects-section {
     margin-bottom: 30px;
     color: var(--hacker-primary);
     font-size: 2em;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
 
 /* Estilos para rolagem horizontal dos projetos no modo hacker */
@@ -654,6 +661,7 @@ body.hacker-mode::before {
     /* Navegação */
     .corporate-header {
         padding: 0.5rem 0;
+        display: none !important;
     }
 
     .corporate-header nav {
