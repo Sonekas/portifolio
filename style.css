@@ -14,6 +14,7 @@
     --hacker-text: #00FF00;
     --hacker-primary: #00BFFF;
     --hacker-secondary: #004d00;
+    --hacker-skill-bar-color: #00bfff9c;
     --hacker-terminal-bg: #1a1a1a;
     --hacker-terminal-border: #00FF00;
     --hacker-accent: #FF00FF;
@@ -460,9 +461,17 @@ body.corporate-mode .btn-primary:hover {
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    /* Padrão: 1 coluna para telas pequenas (mobile-first) */
+    grid-template-columns: 1fr;
     gap: 30px;
     margin-top: 30px;
+}
+
+/* Para telas de tablet e maiores, usa 2 colunas */
+@media (min-width: 768px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .project-card {
@@ -705,6 +714,7 @@ body.hacker-mode .hacker-content {
     margin-bottom: 20px;
     font-size: 1.3rem;
     text-shadow: 0 0 5px var(--hacker-accent);
+    text-align: center;
 }
 
 .hacker-skill-list {
@@ -717,7 +727,6 @@ body.hacker-mode .hacker-content {
     background: var(--hacker-secondary);
     padding: 10px 15px;
     border-radius: 5px;
-    border-left: 3px solid var(--hacker-primary);
     font-family: 'Roboto Mono', monospace;
     transition: all 0.3s ease;
 }
@@ -740,6 +749,7 @@ body.hacker-mode .hacker-content {
     margin-bottom: 20px;
     font-size: 1.3rem;
     text-shadow: 0 0 5px var(--hacker-accent);
+    text-align: center;
 }
 
 .hacker-tech-list {
@@ -767,8 +777,23 @@ body.hacker-mode .hacker-content {
 /* Interesses Hacker */
 .hacker-interests-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Padrão: 1 coluna para telas pequenas (mobile-first) */
+    grid-template-columns: 1fr;
     gap: 25px;
+}
+
+/* Para telas de tablet e desktops pequenos, usa 2 colunas */
+@media (min-width: 768px) {
+    .hacker-interests-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Para telas largas, usa 4 colunas */
+@media (min-width: 1200px) {
+    .hacker-interests-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 .hacker-interest-item {
@@ -797,29 +822,20 @@ body.hacker-mode .hacker-content {
 
 /* Projetos Hacker */
 .hacker-project-grid {
-    display: flex;
-    overflow-x: auto;
+    display: grid;
+    /* Padrão: 1 coluna para telas pequenas (mobile-first) */
+    grid-template-columns: 1fr;
     gap: 25px;
-    padding: 20px;
-    -webkit-overflow-scrolling: touch;
 }
 
-.hacker-project-grid::-webkit-scrollbar {
-    height: 8px;
-}
-
-.hacker-project-grid::-webkit-scrollbar-track {
-    background: var(--hacker-secondary);
-    border-radius: 10px;
-}
-
-.hacker-project-grid::-webkit-scrollbar-thumb {
-    background: var(--hacker-primary);
-    border-radius: 10px;
+/* Para telas de tablet e maiores, usa 2 colunas */
+@media (min-width: 768px) {
+    .hacker-project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .hacker-project-card {
-    flex: 0 0 350px;
     background: var(--hacker-terminal-bg);
     border: 1px solid var(--hacker-terminal-border);
     border-radius: 10px;
@@ -932,6 +948,10 @@ body.hacker-mode .hacker-content {
     margin: 0;
     font-size: 1rem;
     text-shadow: 0 0 5px var(--hacker-text);
+}
+
+body.hacker-mode .terminal-footer pre {
+    font-size: 0.8rem;
 }
 
 body.hacker-mode .terminal-footer {
@@ -1104,6 +1124,10 @@ body.hacker-mode::before {
 
 /* Responsividade */
 @media (max-width: 768px) {
+    html {
+        font-size: 15px; /* Reduz a base de fonte para telas menores */
+    }
+
     /* Header Mobile */
     .mobile-menu-toggle {
         display: flex;
@@ -1190,11 +1214,6 @@ body.hacker-mode::before {
         gap: 40px;
     }
 
-    /* Projects Mobile */
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-
     .projects-filter {
         gap: 10px;
     }
@@ -1204,16 +1223,16 @@ body.hacker-mode::before {
         font-size: 0.9rem;
     }
 
+    .terminal-footer pre {
+        font-size: 0.8rem;
+    }
+
     /* Hacker Mode Mobile */
     .hacker-skills-grid,
     .hacker-tech-grid,
     .hacker-interests-grid {
         grid-template-columns: 1fr;
         gap: 20px;
-    }
-
-    .hacker-project-card {
-        flex: 0 0 300px;
     }
 
     /* Terminal Mobile */
@@ -1259,7 +1278,6 @@ body.hacker-mode::before {
     }
 
     .hacker-project-card {
-        flex: 0 0 280px;
         padding: 20px;
     }
 
