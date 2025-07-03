@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     const terminalFooter = document.querySelector('.terminal-footer');
     const hackerTerminalOverlay = document.getElementById('hacker-terminal-overlay');
-    const exitHackerModeBtn = document.getElementById('exit-hacker-mode');
     const terminalOutput = document.getElementById('terminal-output');
     const terminalCommandInput = document.getElementById('terminal-command');
     const hackerProjectGrid = document.getElementById('hacker-project-grid');
@@ -181,9 +180,16 @@ exit        - Volta para o modo corporativo.
         }
     });
 
-    // O botão 'X' no terminal agora apenas oculta o terminal, não sai do modo hacker
-    exitHackerModeBtn.addEventListener('click', () => {
-        hackerTerminalOverlay.classList.remove('visible'); // Fecha o terminal
+    // O botão de minimizar no terminal
+    const minimizeBtn = document.getElementById('minimize-hacker-terminal');
+    minimizeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        hackerTerminalOverlay.classList.toggle('minimized');
+        if (!hackerTerminalOverlay.classList.contains('minimized')) {
+            setTimeout(() => {
+                terminalCommandInput.focus();
+            }, 400);
+        }
     });
 
     // --- Lógica do Terminal Interativo ---
@@ -273,4 +279,6 @@ exit        - Volta para o modo corporativo.
 
     // Ajustar inicialmente
     adjustTerminalHeight();
+
+
 });
