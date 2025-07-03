@@ -1,439 +1,619 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+document.addEventListener('DOMContentLoaded', () => {
+    const body = document.body;
+    const terminalFooter = document.querySelector('.terminal-footer');
+    const hackerTerminalOverlay = document.getElementById('hacker-terminal-overlay');
+    const terminalOutput = document.getElementById('terminal-output');
+    const terminalCommandInput = document.getElementById('terminal-command');
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedro Henrique - Portfólio</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-</head>
+    // Elementos do menu móvel
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-menu a');
 
-<body class="corporate-mode">
-    <!-- Header Corporativo -->
-    <header class="corporate-header">
-        <nav>
-            <div class="nav-container">
-                <div class="nav-brand">
-                    <span>PH</span>
-                </div>
-                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-menu" id="nav-menu">
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#experiencia">Experiência</a></li>
-                    <li><a href="#projetos">Projetos</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    // Elementos dos projetos
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
 
-    <!-- Conteúdo Principal Corporativo -->
-    <main class="corporate-main">
-        <!-- Seção Início -->
-        <section id="home" class="hero-section">
-            <div class="hero-content">
-                <h1>Pedro Henrique Cunha Amancio Silva</h1>
-                <h2 class="hero-subtitle">
-                    <span class="bracket">&lt;</span>
-                    <span class="developer-text">DEVELOPER</span>
-                    <span class="bracket">/&gt;</span>
-                </h2>
-                <p class="hero-description">Desenvolvedor em transição, focado em criar soluções eficientes e acessíveis</p>
-                <div class="hero-buttons">
-                    <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
-                    <a href="#contato" class="btn btn-secondary">Contato</a>
-                </div>
-            </div>
-        </section>
+    // --- Funcionalidade do Menu Móvel ---
+    if (mobileMenuToggle && navMenu) {
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
 
-        <!-- Seção Sobre Mim -->
-        <section id="sobre" class="about-section">
-            <div class="container">
-                <h2>Sobre Mim</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>Trabalhei como Técnico Administrativo na Secretaria de Saúde do GDF. Ao me deparar com as demandas do serviço administrativo, percebi a necessidade de soluções mais eficientes e práticas, o que me impulsionou para o mundo da programação.</p>
-                        <p>Atualmente, estou em transição para me tornar um desenvolvedor, focado em criar soluções claras e acessíveis para todos. Minha experiência administrativa me deu uma perspectiva única sobre as necessidades reais dos usuários e a importância de sistemas bem estruturados.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        // Fechar menu ao clicar em um link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
 
-        <!-- Seção Experiência Profissional -->
-        <section id="experiencia" class="experience-section">
-            <div class="container">
-                <h2>Experiência Profissional</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3>Técnico Administrativo</h3>
-                            <h4>Secretaria de Saúde do GDF</h4>
-                            <span class="timeline-date">2020 - 2024</span>
-                            <p>Responsável por processos administrativos, análise de documentos e atendimento ao público. Identificação de oportunidades de melhoria em sistemas e processos, o que despertou meu interesse pela programação.</p>
-                            <ul class="timeline-skills">
-                                <li>Gestão de processos</li>
-                                <li>Análise de dados</li>
-                                <li>Atendimento ao cliente</li>
-                                <li>Organização de documentos</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3>Desenvolvedor em Formação</h3>
-                            <h4>Estudos Autodidatas e Cursos</h4>
-                            <span class="timeline-date">2022 - Presente</span>
-                            <p>Transição de carreira para desenvolvimento de software, com foco em tecnologias web e backend. Desenvolvimento de projetos pessoais e participação em comunidades de programação.</p>
-                            <ul class="timeline-skills">
-                                <li>Python</li>
-                                <li>JavaScript</li>
-                                <li>HTML/CSS</li>
-                                <li>SQL</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        // Fechar menu ao clicar fora dele
+        document.addEventListener('click', (event) => {
+            if (!event.target.closest('.corporate-header') && navMenu.classList.contains('active')) {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    }
 
-        <!-- Seção Projetos -->
-        <section id="projetos" class="projects-section">
-            <div class="container">
-                <h2>Meus Projetos</h2>
-                <div class="projects-filter">
-                    <button class="filter-btn active" data-filter="all">Todos</button>
-                    <button class="filter-btn" data-filter="web">Web</button>
-                    <button class="filter-btn" data-filter="python">Python</button>
-                    <button class="filter-btn" data-filter="javascript">JavaScript</button>
-                </div>
-                <div class="project-grid">
-                    <div class="project-card" data-category="web python">
-                        <div class="project-image">
-                            <i class="fas fa-tasks"></i>
-                        </div>
-                        <div class="project-content">
-                            <h3>Sistema de Gestão de Tarefas</h3>
-                            <p>Sistema web para organizar e gerenciar tarefas diárias, com interface intuitiva e funcionalidades de produtividade.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Django</span>
-                                <span class="tech-tag">PostgreSQL</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="btn btn-small">Ver Projeto</a>
-                                <a href="#" class="btn btn-small btn-outline">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card" data-category="javascript web">
-                        <div class="project-image">
-                            <i class="fas fa-cloud-sun"></i>
-                        </div>
-                        <div class="project-content">
-                            <h3>Aplicativo de Previsão do Tempo</h3>
-                            <p>Aplicativo web que fornece previsões meteorológicas em tempo real utilizando APIs externas.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">HTML/CSS</span>
-                                <span class="tech-tag">API</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="btn btn-small">Ver Projeto</a>
-                                <a href="#" class="btn btn-small btn-outline">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card" data-category="web javascript">
-                        <div class="project-image">
-                            <i class="fas fa-blog"></i>
-                        </div>
-                        <div class="project-content">
-                            <h3>Plataforma de Blog Pessoal</h3>
-                            <p>Plataforma responsiva para publicação de artigos e compartilhamento de conhecimentos técnicos.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">MongoDB</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="btn btn-small">Ver Projeto</a>
-                                <a href="#" class="btn btn-small btn-outline">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card" data-category="web javascript">
-                        <div class="project-image">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <div class="project-content">
-                            <h3>Assistente Virtual Inteligente</h3>
-                            <p>Chatbot inteligente para atendimento automatizado, integração com APIs e respostas personalizadas.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">OpenAI API</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="btn btn-small">Ver Projeto</a>
-                                <a href="#" class="btn btn-small btn-outline">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    // --- Navegação Suave ---
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                const headerHeight = document.querySelector('.corporate-header').offsetHeight;
+                const targetPosition = targetSection.offsetTop - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 
-        <!-- Seção Contato -->
-        <section id="contato" class="contact-section">
-            <div class="container">
-                <h2>Entre em Contato</h2>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <h3>Vamos conversar!</h3>
-                        <p>Estou sempre aberto a novas oportunidades e colaborações. Entre em contato comigo através dos canais abaixo.</p>
-                        <div class="contact-items">
-                            <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <div>
-                                    <span class="contact-label">Email</span>
-                                    <a href="mailto:pedrohenriqueamancio@gmail.com">pedrohenriqueamancio@gmail.com</a>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fab fa-linkedin"></i>
-                                <div>
-                                    <span class="contact-label">LinkedIn</span>
-                                    <a href="https://www.linkedin.com/in/pedrohenriqueamancio/" target="_blank">Pedro Henrique no LinkedIn</a>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fab fa-github"></i>
-                                <div>
-                                    <span class="contact-label">GitHub</span>
-                                    <a href="https://github.com/seu-usuario" target="_blank">Pedro Henrique no GitHub</a>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fab fa-whatsapp"></i>
-                                <div>
-                                    <span class="contact-label">WhatsApp</span>
-                                    <a href="https://wa.me/5561998495245" target="_blank">(61) 9849-5245</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-form">
-                        <form id="contact-form" action="https://formspree.io/f/SEU_CODIGO_AQUI" method="POST">
-                            <div class="form-group">
-                                <label for="name">Nome</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">Assunto</label>
-                                <input type="text" id="subject" name="subject" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Mensagem</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+    // --- Filtros de Projetos ---
+    if (filterBtns.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active de todos os botões
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Adiciona active ao botão clicado
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeInUp 0.5s ease-out';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
 
-    <!-- Seção Hacker (Oculta por padrão) -->
-    <section id="hacker-content" class="hacker-content">
-        <!-- Habilidades no Modo Hacker -->
-        <div class="hacker-section" id="hacker-habilidades">
-            <h2>Habilidades Técnicas</h2>
-            <div class="hacker-skills-grid">
-                <div class="hacker-skill-category">
-                    <h3>Linguagens de Programação</h3>
-                    <div class="hacker-skill-list">
-                        <div class="hacker-skill-item">Python - 85%</div>
-                        <div class="hacker-skill-item">JavaScript - 80%</div>
-                        <div class="hacker-skill-item">HTML/CSS - 90%</div>
-                        <div class="hacker-skill-item">Java - 75%</div>
-                        <div class="hacker-skill-item">SQL - 70%</div>
-                    </div>
-                </div>
-                <div class="hacker-skill-category">
-                    <h3>Frameworks & Tecnologias</h3>
-                    <div class="hacker-skill-list">
-                        <div class="hacker-skill-item">Django - 80%</div>
-                        <div class="hacker-skill-item">React - 75%</div>
-                        <div class="hacker-skill-item">Node.js - 70%</div>
-                        <div class="hacker-skill-item">PostgreSQL - 75%</div>
-                        <div class="hacker-skill-item">Git - 85%</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    // --- Formulário de Contato ---
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Impede o recarregamento da página
 
-        <!-- Tecnologias no Modo Hacker -->
-        <div class="hacker-section" id="hacker-tecnologias">
-            <h2>Tecnologias & Ferramentas</h2>
-            <div class="hacker-tech-grid">
-                <div class="hacker-tech-category">
-                    <h3>Backend</h3>
-                    <div class="hacker-tech-list">
-                        <span class="hacker-tech-item">Python</span>
-                        <span class="hacker-tech-item">Django</span>
-                        <span class="hacker-tech-item">Node.js</span>
-                        <span class="hacker-tech-item">PostgreSQL</span>
-                        <span class="hacker-tech-item">MongoDB</span>
-                    </div>
-                </div>
-                <div class="hacker-tech-category">
-                    <h3>Frontend</h3>
-                    <div class="hacker-tech-list">
-                        <span class="hacker-tech-item">JavaScript</span>
-                        <span class="hacker-tech-item">React</span>
-                        <span class="hacker-tech-item">HTML5</span>
-                        <span class="hacker-tech-item">CSS3</span>
-                        <span class="hacker-tech-item">Bootstrap</span>
-                    </div>
-                </div>
-                <div class="hacker-tech-category">
-                    <h3>Ferramentas</h3>
-                    <div class="hacker-tech-list">
-                        <span class="hacker-tech-item">Git</span>
-                        <span class="hacker-tech-item">VS Code</span>
-                        <span class="hacker-tech-item">Docker</span>
-                        <span class="hacker-tech-item">Postman</span>
-                        <span class="hacker-tech-item">Linux</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            const formData = new FormData(contactForm);
 
-        <!-- Áreas de Interesse no Modo Hacker -->
-        <div class="hacker-section" id="hacker-interesses">
-            <h2>Áreas de Interesse</h2>
-            <div class="hacker-interests-grid">
-                <div class="hacker-interest-item">
-                    <h3>Desenvolvimento Web</h3>
-                    <p>Criação de aplicações web modernas e responsivas</p>
-                </div>
-                <div class="hacker-interest-item">
-                    <h3>Backend Development</h3>
-                    <p>APIs RESTful, microserviços e arquitetura de sistemas</p>
-                </div>
-                <div class="hacker-interest-item">
-                    <h3>Automação</h3>
-                    <p>Scripts e ferramentas para otimização de processos</p>
-                </div>
-                <div class="hacker-interest-item">
-                    <h3>Data Science</h3>
-                    <p>Análise de dados e machine learning</p>
-                </div>
-            </div>
-        </div>
+            submitBtn.textContent = 'Enviando...';
+            submitBtn.disabled = true;
 
-        <!-- Projetos Técnicos no Modo Hacker -->
-        <div class="hacker-section" id="hacker-projetos">
-            <h2>Projetos Técnicos</h2>
-            <div class="hacker-project-grid">
-                <div class="hacker-project-card">
-                    <h3>Sistema de Gestão de Tarefas</h3>
-                    <p>Sistema web completo para gerenciamento de tarefas com autenticação, CRUD e dashboard.</p>
-                    <div class="tech-icons-container">
-                        <span class="tech-icon python" title="Python"></span>
-                        <span class="tech-icon django" title="Django"></span>
-                        <span class="tech-icon postgresql" title="PostgreSQL"></span>
-                        <span class="tech-icon html" title="HTML"></span>
-                        <span class="tech-icon css" title="CSS"></span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" target="_blank">Demo</a>
-                        <a href="#" target="_blank">GitHub</a>
-                    </div>
-                </div>
-                <div class="hacker-project-card">
-                    <h3>API de Previsão do Tempo</h3>
-                    <p>API RESTful que integra múltiplas fontes de dados meteorológicos com cache e rate limiting.</p>
-                    <div class="tech-icons-container">
-                        <span class="tech-icon javascript" title="JavaScript"></span>
-                        <span class="tech-icon nodejs" title="Node.js"></span>
-                        <span class="tech-icon api" title="API"></span>
-                        <span class="tech-icon html" title="HTML"></span>
-                        <span class="tech-icon css" title="CSS"></span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" target="_blank">Demo</a>
-                        <a href="#" target="_blank">GitHub</a>
-                    </div>
-                </div>
-                <div class="hacker-project-card">
-                    <h3>Blog Platform</h3>
-                    <p>Plataforma de blog com sistema de comentários, tags e busca avançada.</p>
-                    <div class="tech-icons-container">
-                        <span class="tech-icon react" title="React"></span>
-                        <span class="tech-icon nodejs" title="Node.js"></span>
-                        <span class="tech-icon firebase" title="Firebase"></span>
-                        <span class="tech-icon html" title="HTML"></span>
-                        <span class="tech-icon css" title="CSS"></span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" target="_blank">Demo</a>
-                        <a href="#" target="_blank">GitHub</a>
-                    </div>
-                </div>
-                <div class="hacker-project-card">
-                    <h3>Assistente Virtual Inteligente</h3>
-                    <p>Chatbot inteligente para atendimento automatizado, integração com APIs e respostas personalizadas.</p>
-                    <div class="tech-icons-container">
-                        <span class="tech-icon javascript" title="JavaScript"></span>
-                        <span class="tech-icon nodejs" title="Node.js"></span>
-                        <span class="tech-icon api" title="OpenAI API"></span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" target="_blank">Demo</a>
-                        <a href="#" target="_blank">GitHub</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    alert('Mensagem enviada com sucesso! Entrarei em contato em breve.');
+                    contactForm.reset();
+                } else {
+                    alert('Ocorreu um erro ao enviar a mensagem. Tente novamente.');
+                }
+            }).finally(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+    }
 
-    <!-- Rodapé Terminal -->
-    <footer class="terminal-footer" id="terminal-footer">
-        <pre>&gt; Acesso restrito. Deseja continuar? [S/N]</pre>
-    </footer>
+    // --- Dados para o Modo Hacker ---
+    const aboutData = `
+Nome: Pedro Henrique Cunha Amancio Silva
+Formação: Ciências da Computação (7º semestre) - Universidade do Distrito Federal (01/2020 - presente)
 
-    <!-- Terminal Hacker -->
-    <div id="hacker-terminal-overlay" class="hacker-terminal-overlay">
-        <div id="hacker-terminal" class="hacker-terminal-container">
-            <div class="terminal-header">
-                <span>Terminal de Acesso</span>
-                <button id="minimize-hacker-terminal" title="Minimizar terminal">_</button>
-            </div>
-            <div class="terminal-output" id="terminal-output">
-                <pre>Bem-vindo ao sistema. Digite 'help' para ver os comandos.</pre>
-            </div>
-            <div class="terminal-input">
-                <pre>&gt; </pre><input type="text" id="terminal-command" autofocus>
-            </div>
-        </div>
-    </div>
+Experiência Profissional:
+- Estagiário de Design Gráfico (RESBRA Sinalizações, 09/2020-07/2023):
+  Criação de artes gráficas para sinalizações e materiais publicitários da empresa.
+  Edição e preparação de peças visuais para campanhas de comunicação interna e externa.
+  Colaboração no desenvolvimento de animações e materiais gráficos para clientes.
+  Uso de ferramentas como CapCut, Canva e Adobe Premiere na edição de vídeos curtas e animações para plataformas digitais.
 
-    <script src="script.js"></script>
-</body>
+- Assessor (Secretaria de Saúde do Distrito Federal):
+  Desenvolvimento e controle de planilhas de controle financeiro.
+  Elaboração e análise de relatório financeiro.
+  Respostas de despachos e memorando.
 
-</html>
+Cursos e Especializações:
+- Banco de Dados (Fundação Bradesco, 2025)
+- Linguagem de Programação Python (Fundação Bradesco, 2025)
+- Lei Geral de Proteção de Dados (LGPD) (Fundação Bradesco, 2024)
+- Projetos de Sistemas de TI (Fundação Bradesco, 2024)
+- Segurança em Tecnologia da Informação (Fundação Bradesco, 2024)
+- Análise de Dados no Power BI (Fundação Bradesco, 2024)
+- Pensamento Computacional (Fundação Bradesco, 2023)
+- Segurança do Trabalho (Prime Cursos do Brasil, 2024)
+`;
+
+    const skillsData = `
+=== HABILIDADES TÉCNICAS ===
+
+Linguagens de Programação:
+• Python - 85%
+• JavaScript - 80%
+• HTML/CSS - 90%
+• Java - 75%
+• SQL - 70%
+
+Frameworks & Tecnologias:
+• Django - 80%
+• React - 75%
+• Node.js - 70%
+• PostgreSQL - 75%
+• Git - 85%
+
+Ferramentas & Sistemas:
+• Windows/Linux
+• VS Code
+• Docker
+• Postman
+• Excel/Word
+• CapCut/Canva
+• Adobe Premiere
+
+Soft Skills:
+• Comunicação - 90%
+• Trabalho em Equipe - 85%
+• Resolução de Problemas - 95%
+• Adaptabilidade - 88%
+`;
+
+    const technologiesData = `
+=== TECNOLOGIAS & FERRAMENTAS ===
+
+Backend:
+• Python (Django, Flask)
+• Node.js (Express)
+• PostgreSQL, MongoDB
+• APIs RESTful
+• Microserviços
+
+Frontend:
+• JavaScript (ES6+)
+• React.js
+• HTML5/CSS3
+• Bootstrap
+• Responsive Design
+
+DevOps & Ferramentas:
+• Git/GitHub
+• Docker
+• Linux/Windows
+• VS Code
+• Postman
+• Power BI
+
+Design & Multimídia:
+• Adobe Premiere
+• CapCut
+• Canva
+• Design Gráfico
+• Edição de Vídeo
+`;
+
+    const interestsData = `
+=== ÁREAS DE INTERESSE ===
+
+Desenvolvimento Web:
+• Aplicações web modernas e responsivas
+• Single Page Applications (SPA)
+• Progressive Web Apps (PWA)
+• Experiência do usuário (UX/UI)
+
+Backend Development:
+• APIs RESTful e GraphQL
+• Microserviços e arquitetura distribuída
+• Bancos de dados relacionais e NoSQL
+• Segurança e autenticação
+
+Automação & Produtividade:
+• Scripts Python para automação
+• Ferramentas de produtividade
+• Otimização de processos
+• Integração de sistemas
+
+Data Science & Analytics:
+• Análise de dados com Python
+• Visualização de dados
+• Business Intelligence
+• Machine Learning (iniciante)
+
+Tecnologias Emergentes:
+• Cloud Computing
+• DevOps e CI/CD
+• Containerização
+• Internet das Coisas (IoT)
+`;
+
+    const projectsData = `
+=== PROJETOS TÉCNICOS ===
+
+1. Sistema de Gestão de Tarefas
+   • Tecnologias: Python, Django, PostgreSQL, HTML/CSS, JavaScript
+   • Funcionalidades: CRUD completo, autenticação, dashboard
+   • Status: Concluído
+   • Repositório: github.com/pedrohenrique/sistema-tarefas
+
+2. API de Previsão do Tempo
+   • Tecnologias: JavaScript, Node.js, APIs REST
+   • Funcionalidades: Integração com APIs externas, cache, rate limiting
+   • Status: Em desenvolvimento
+   • Repositório: github.com/pedrohenrique/weather-api
+
+3. Plataforma de Blog Pessoal
+   • Tecnologias: React, Node.js, Firebase
+   • Funcionalidades: Sistema de comentários, tags, busca
+   • Status: Concluído
+   • Repositório: github.com/pedrohenrique/blog-platform
+
+4. Automação de Relatórios
+   • Tecnologias: Python, Pandas, Excel
+   • Funcionalidades: Geração automática de relatórios financeiros
+   • Status: Em uso na Secretaria de Saúde
+   • Repositório: Privado (uso interno)
+`;
+
+    const helpData = `
+=== COMANDOS DISPONÍVEIS ===
+
+Informações Pessoais:
+• cat sobre.txt     - Perfil técnico completo
+• skills           - Habilidades técnicas detalhadas
+• tecnologias      - Tecnologias e ferramentas
+• interesses       - Áreas de interesse
+• curriculo.pdf    - Baixar currículo em PDF
+
+Projetos:
+• projetos         - Lista de projetos técnicos
+• ls              - Localizar projetos na interface
+
+Sistema:
+• clear           - Limpar terminal
+• help            - Mostrar esta ajuda
+• exit            - Voltar ao modo corporativo
+
+Dica: Use as setas ↑↓ para navegar no histórico de comandos.
+`;
+
+    // --- Histórico de Comandos ---
+    let commandHistory = [];
+    let historyIndex = -1;
+
+    // --- Funções de Transição de Modo ---
+    function enterHackerMode() {
+        if (body.classList.contains('hacker-mode')) {
+            return;
+        }
+        // Adicionar efeito de transição
+        body.style.transition = 'all 0.8s ease';
+        body.classList.remove('corporate-mode');
+        body.classList.add('hacker-mode');
+        // Exibir o terminal automaticamente
+        setTimeout(() => {
+            hackerTerminalOverlay.classList.add('visible');
+            hackerTerminalOverlay.classList.add('minimized'); // Começa minimizado
+            // terminalCommandInput.focus(); // Só foca quando maximizar
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+            // Mensagem de boas-vindas no modo hacker
+            terminalOutput.innerHTML += `<pre style="color: #00BFFF;">
+╔══════════════════════════════════════════════════════════════╗
+║                    MODO HACKER ATIVADO                  ║
+║                                                         ║
+║  Bem-vindo ao terminal de acesso técnico!               ║
+║  Digite 'help' para ver todos os comandos disponíveis.  ║
+║                                                         ║
+║  Pressione 'exit' para retornar ao modo corporativo.    ║
+╚══════════════════════════════════════════════════════════════╝
+</pre>`;
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        }, 400);
+    }
+
+    function exitHackerMode() {
+        hackerTerminalOverlay.classList.remove('visible');
+        
+        setTimeout(() => {
+            body.classList.remove('hacker-mode');
+            body.classList.add('corporate-mode');
+            
+            // Resetar terminal
+            terminalOutput.innerHTML = '<pre>Bem-vindo ao sistema. Digite \'help\' para ver os comandos.</pre>';
+            commandHistory = [];
+            historyIndex = -1;
+            
+            // Scroll suave para o topo
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }, 500);
+    }
+
+    // --- Event Listeners para Ativação do Modo Hacker ---
+
+    // Ativar modo hacker ao pressionar 'S'
+    document.addEventListener('keydown', (event) => {
+        if ((event.key === 's' || event.key === 'S') && body.classList.contains('corporate-mode')) {
+            // Verificar se não está digitando em um input
+            if (document.activeElement.tagName !== 'INPUT' && 
+                document.activeElement.tagName !== 'TEXTAREA') {
+                event.preventDefault();
+                enterHackerMode();
+            }
+        }
+    });
+
+    // Ativar modo hacker ao clicar no rodapé
+    if (terminalFooter) {
+        terminalFooter.addEventListener('click', () => {
+            if (body.classList.contains('corporate-mode')) {
+                enterHackerMode();
+            }
+        });
+    }
+
+    // Botão de minimizar terminal
+    const minimizeBtn = document.getElementById('minimize-hacker-terminal');
+    if (minimizeBtn) {
+        minimizeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            hackerTerminalOverlay.classList.toggle('minimized');
+            
+            if (!hackerTerminalOverlay.classList.contains('minimized')) {
+                setTimeout(() => {
+                    terminalCommandInput.focus();
+                }, 400);
+            }
+        });
+    }
+
+    // --- Lógica do Terminal Interativo ---
+    if (terminalCommandInput) {
+        terminalCommandInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                const command = terminalCommandInput.value.trim();
+                
+                if (command) {
+                    // Adicionar ao histórico
+                    commandHistory.push(command);
+                    historyIndex = commandHistory.length;
+                    
+                    // Mostrar comando no terminal
+                    terminalOutput.innerHTML += `<pre style="color: #00BFFF;">&gt; ${command}</pre>`;
+                    
+                    // Processar comando
+                    processCommand(command.toLowerCase());
+                }
+                
+                terminalCommandInput.value = '';
+                terminalOutput.scrollTop = terminalOutput.scrollHeight;
+            }
+            // Navegação no histórico com setas
+            else if (event.key === 'ArrowUp') {
+                event.preventDefault();
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    terminalCommandInput.value = commandHistory[historyIndex];
+                }
+            }
+            else if (event.key === 'ArrowDown') {
+                event.preventDefault();
+                if (historyIndex < commandHistory.length - 1) {
+                    historyIndex++;
+                    terminalCommandInput.value = commandHistory[historyIndex];
+                } else {
+                    historyIndex = commandHistory.length;
+                    terminalCommandInput.value = '';
+                }
+            }
+        });
+    }
+
+    // --- Função para Processar Comandos ---
+    function processCommand(command) {
+        let output = '';
+        
+        switch (command) {
+            case 'help':
+                output = helpData;
+                break;
+                
+            case 'cat sobre.txt':
+            case 'sobre':
+                output = aboutData;
+                break;
+                
+            case 'skills':
+            case 'habilidades':
+                output = skillsData;
+                break;
+                
+            case 'tecnologias':
+            case 'tech':
+                output = technologiesData;
+                break;
+                
+            case 'interesses':
+            case 'areas':
+                output = interestsData;
+                break;
+                
+            case 'projetos':
+            case 'projects':
+                output = projectsData;
+                break;
+                
+            case 'ls':
+                output = `
+Diretórios disponíveis:
+• /habilidades     - Seção de habilidades técnicas
+• /tecnologias     - Ferramentas e tecnologias
+• /interesses      - Áreas de interesse
+• /projetos        - Projetos técnicos (visíveis na interface)
+
+Use 'cat [arquivo]' ou digite o nome da seção para mais detalhes.
+Role para cima na interface para ver os projetos técnicos visuais.`;
+                break;
+                
+            case 'curriculo.pdf':
+            case 'cv':
+                output = 'Preparando download do currículo...';
+                // Simular download - substitua pelo link real do seu currículo
+                setTimeout(() => {
+                    const link = document.createElement('a');
+                    link.href = '#'; // Substitua pelo link real do seu PDF
+                    link.download = 'Pedro_Henrique_Curriculo.pdf';
+                    link.click();
+                }, 1000);
+                break;
+                
+            case 'clear':
+            case 'cls':
+                terminalOutput.innerHTML = '';
+                return; // Não adicionar output
+                
+            case 'exit':
+            case 'quit':
+                output = 'Saindo do modo hacker... Retornando ao modo corporativo.';
+                setTimeout(() => {
+                    exitHackerMode();
+                }, 1500);
+                break;
+                
+            case 'whoami':
+                output = 'pedro@portfolio:~$ Desenvolvedor em transição, apaixonado por tecnologia e soluções inovadoras.';
+                break;
+                
+            case 'date':
+                output = new Date().toLocaleString('pt-BR');
+                break;
+                
+            case 'pwd':
+                output = '/home/pedro/portfolio/modo_hacker';
+                break;
+                
+            default:
+                output = `Comando não encontrado: '${command}'
+Digite 'help' para ver todos os comandos disponíveis.
+
+Comandos sugeridos:
+• help - Lista de comandos
+• sobre - Informações pessoais
+• skills - Habilidades técnicas
+• projetos - Lista de projetos`;
+        }
+        
+        if (output) {
+            terminalOutput.innerHTML += `<pre>${output}</pre>`;
+        }
+    }
+
+    // --- Função para Barras de Habilidade ---
+    function setupSkillBars() {
+        const skillItems = document.querySelectorAll('.hacker-skill-item');
+        skillItems.forEach(item => {
+            const text = item.textContent;
+            // Encontra o número da porcentagem no texto do item
+            const percentageMatch = text.match(/(\d+)%/);
+            if (percentageMatch && percentageMatch[1]) {
+                const percentage = percentageMatch[1];
+                // Aplica um fundo gradiente que simula a barra de progresso
+                item.style.background = `linear-gradient(to right, var(--hacker-skill-bar-color) ${percentage}%, var(--hacker-secondary) ${percentage}%)`;
+            }
+        });
+    }
+
+    // --- Scroll Reveal Animation ---
+    function revealOnScroll() {
+        const reveals = document.querySelectorAll('.project-card, .timeline-item, .stat-item, .contact-item');
+        
+        reveals.forEach(element => {
+            const windowHeight = window.innerHeight;
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < windowHeight - elementVisible) {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+            }
+        });
+    }
+
+    // Inicializar elementos para animação
+    function initScrollReveal() {
+        const reveals = document.querySelectorAll('.project-card, .timeline-item, .stat-item, .contact-item');
+        reveals.forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'all 0.6s ease-out';
+        });
+    }
+
+    // --- Melhorias para Dispositivos Móveis ---
+    function adjustForMobile() {
+        if (window.innerWidth <= 768) {
+            // Ajustar altura do terminal baseado na orientação
+            const isLandscape = window.innerHeight < window.innerWidth;
+            const terminalHeight = isLandscape ? '50vh' : '60vh';
+            document.documentElement.style.setProperty('--terminal-height', terminalHeight);
+            
+            // Melhorar foco no input do terminal
+            if (terminalCommandInput) {
+                terminalCommandInput.addEventListener('focus', () => {
+                    if (!hackerTerminalOverlay.classList.contains('visible')) {
+                        hackerTerminalOverlay.classList.add('visible');
+                    }
+                    
+                    // Scroll para garantir que o terminal esteja visível
+                    setTimeout(() => {
+                        terminalCommandInput.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'center' 
+                        });
+                    }, 300);
+                });
+            }
+        }
+    }
+
+    // --- Event Listeners ---
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('resize', adjustForMobile);
+    window.addEventListener('orientationchange', () => {
+        setTimeout(adjustForMobile, 100);
+    });
+
+    // --- Inicialização ---
+    initScrollReveal();
+    adjustForMobile();
+    revealOnScroll(); // Verificar elementos já visíveis
+    setupSkillBars(); // Ativa as barras de habilidade dinâmicas
+
+    // Scroll para o topo ao carregar
+    window.scrollTo(0, 0);
+
+    // Adicionar classe de carregamento concluído
+    setTimeout(() => {
+        body.classList.add('loaded');
+    }, 100);
+
+    console.log('🚀 Portfólio carregado com sucesso!');
+    console.log('💡 Pressione "S" para ativar o modo hacker');
+    console.log('🔧 Desenvolvido por Pedro Henrique');
+});
