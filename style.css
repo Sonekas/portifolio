@@ -3,11 +3,11 @@
     /* Corporate Mode */
     --corporate-bg: #F8F8F8;
     --corporate-text: #1a1a1a;
-    --corporate-primary: #007BFF;
+    --corporate-primary: #4a148c;
     --corporate-secondary: #E0E0E0;
     --corporate-card-bg: #FFFFFF;
     --corporate-shadow: rgba(0, 0, 0, 0.1);
-    --corporate-accent: #0056b3;
+    --corporate-accent: #6a1b9a;
 
     /* Hacker Mode */
     --hacker-bg: #000000;
@@ -182,7 +182,7 @@ h2::after {
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(135deg, var(--corporate-bg) 0%, #f0f8ff 100%);
+    background: linear-gradient(135deg, var(--corporate-bg) 0%, #f8f4ff 50%, rgba(74, 20, 140, 0.1) 100%);
     text-align: center;
     padding: 120px 0;
     position: relative;
@@ -196,7 +196,7 @@ h2::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23007BFF" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%234a148c" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
     opacity: 0.3;
 }
 
@@ -262,12 +262,12 @@ h2::after {
 body.corporate-mode .btn-primary {
     background: linear-gradient(45deg, var(--corporate-primary), var(--corporate-accent));
     color: #FFFFFF;
-    box-shadow: 0 4px 15px rgb(135, 189, 252);
+    box-shadow: 0 4px 15px rgba(74, 20, 140, 0.3);
 }
 
 body.corporate-mode .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(167, 207, 250, 0.356);
+    box-shadow: 0 6px 20px rgba(74, 20, 140, 0.4);
 }
 
 .btn-secondary {
@@ -485,7 +485,7 @@ body.corporate-mode .btn-primary:hover {
 
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 123, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(74, 20, 140, 0.2);
 }
 
 .project-image {
@@ -925,7 +925,7 @@ body.hacker-mode .hacker-content {
 }
 
 .tech-icons-container .fa-cloud {
-    color: #00BFFF;
+    color: #4a148c;
 }
 
 .tech-icons-container .fa-file-excel {
@@ -945,7 +945,7 @@ body.hacker-mode .hacker-content {
 }
 
 .tech-icons-container .fa-table {
-    color: #4A90E2;
+    color: #4a148c;
 }
 
 .tech-icons-container .fa-file-csv {
