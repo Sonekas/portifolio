@@ -47,11 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (targetId && targetId.startsWith('#')) {
                 e.preventDefault();
                 const targetSection = document.querySelector(targetId);
-                
+
                 if (targetSection) {
                     const headerHeight = document.querySelector('.corporate-header').offsetHeight;
                     const targetPosition = targetSection.offsetTop - headerHeight - 20;
-                    
+
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
@@ -69,9 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 filterBtns.forEach(b => b.classList.remove('active'));
                 // Adiciona active ao botão clicado
                 btn.classList.add('active');
-                
+
                 const filter = btn.getAttribute('data-filter');
-                
+
                 projectCards.forEach(card => {
                     if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
                         card.style.display = 'block';
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const originalText = submitBtn.textContent;
             const formData = new FormData(contactForm);
 
-            submitBtn.textContent = 'Enviando...';
+            submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
 
             fetch(contactForm.action, {
@@ -105,10 +105,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }).then(response => {
                 if (response.ok) {
-                    alert('Mensagem enviada com sucesso! Entrarei em contato em breve.');
+                    alert('Message sent successfully! I will contact you soon.');
                     contactForm.reset();
                 } else {
-                    alert('Ocorreu um erro ao enviar a mensagem. Tente novamente.');
+                    alert('An error occurred while sending the message. Please try again.');
                 }
             }).finally(() => {
                 submitBtn.textContent = originalText;
@@ -119,50 +119,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Dados para o Modo Hacker ---
     const aboutData = `
-Nome: Pedro Henrique Cunha Amancio Silva
-Formação: Ciências da Computação (7º semestre) - Universidade do Distrito Federal (01/2020 - presente)
+Name: Pedro Henrique Cunha Amancio Silva
+Education: Computer Science (7th semester) - University of the Federal District (01/2020 - present)
 
-Experiência Profissional:
-- Estagiário de Design Gráfico (RESBRA Sinalizações, 09/2020-07/2023):
-  Criação de artes gráficas para sinalizações e materiais publicitários da empresa.
-  Edição e preparação de peças visuais para campanhas de comunicação interna e externa.
-  Colaboração no desenvolvimento de animações e materiais gráficos para clientes.
-  Uso de ferramentas como CapCut, Canva e Adobe Premiere na edição de vídeos curtas e animações para plataformas digitais.
+Professional Experience:
+- Graphic Design Intern (RESBRA Sinalizações, 09/2020-07/2023):
+  Creation of graphic arts for signage and advertising materials for the company.
+  Editing and preparation of visual pieces for internal and external communication campaigns.
+  Collaboration in the development of animations and graphic materials for clients.
+  Use of tools such as CapCut, Canva and Adobe Premiere for editing short videos and animations for digital platforms.
 
-- Assessor (Secretaria de Saúde do Distrito Federal):
-  Desenvolvimento e controle de planilhas de controle financeiro.
-  Elaboração e análise de relatório financeiro.
-  Respostas de despachos e memorando.
+- Assistant (Health Secretariat of the Federal District):
+  Development and monitoring of financial control spreadsheets.
+  Drafting and analysis of financial reports.
+  Replying to dispatches and memorandums.
 
-Cursos e Especializações:
-- Banco de Dados (Fundação Bradesco, 2025)
-- Linguagem de Programação Python (Fundação Bradesco, 2025)
-- Lei Geral de Proteção de Dados (LGPD) (Fundação Bradesco, 2024)
-- Projetos de Sistemas de TI (Fundação Bradesco, 2024)
-- Segurança em Tecnologia da Informação (Fundação Bradesco, 2024)
-- Análise de Dados no Power BI (Fundação Bradesco, 2024)
-- Pensamento Computacional (Fundação Bradesco, 2023)
-- Segurança do Trabalho (Prime Cursos do Brasil, 2024)
+Courses and Specializations:
+- Databases (Fundação Bradesco, 2025)
+- Python Programming Language (Fundação Bradesco, 2025)
+- General Data Protection Law (LGPD) (Fundação Bradesco, 2024)
+- IT Systems Projects (Fundação Bradesco, 2024)
+- Information Technology Security (Fundação Bradesco, 2024)
+- Data Analysis in Power BI (Fundação Bradesco, 2024)
+- Computational Thinking (Fundação Bradesco, 2023)
+- Occupational Safety (Prime Cursos do Brasil, 2024)
 `;
 
     const skillsData = `
-=== HABILIDADES TÉCNICAS ===
+=== TECHNICAL SKILLS ===
 
-Linguagens de Programação:
+Programming Languages:
 • Python - 85%
 • JavaScript - 80%
 • HTML/CSS - 90%
 • Java - 75%
 • SQL - 70%
 
-Frameworks & Tecnologias:
+Frameworks & Technologies:
 • Django - 80%
 • React - 75%
 • Node.js - 70%
 • PostgreSQL - 75%
 • Git - 85%
 
-Ferramentas & Sistemas:
+Tools & Systems:
 • Windows/Linux
 • VS Code
 • Docker
@@ -172,21 +172,21 @@ Ferramentas & Sistemas:
 • Adobe Premiere
 
 Soft Skills:
-• Comunicação - 90%
-• Trabalho em Equipe - 85%
-• Resolução de Problemas - 95%
-• Adaptabilidade - 88%
+• Communication - 90%
+• Teamwork - 85%
+• Problem Solving - 95%
+• Adaptability - 88%
 `;
 
     const technologiesData = `
-=== TECNOLOGIAS & FERRAMENTAS ===
+=== TECHNOLOGIES & TOOLS ===
 
 Backend:
 • Python (Django, Flask)
 • Node.js (Express)
 • PostgreSQL, MongoDB
-• APIs RESTful
-• Microserviços
+• RESTful APIs
+• Microservices
 
 Frontend:
 • JavaScript (ES6+)
@@ -195,7 +195,7 @@ Frontend:
 • Bootstrap
 • Responsive Design
 
-DevOps & Ferramentas:
+DevOps & Tools:
 • Git/GitHub
 • Docker
 • Linux/Windows
@@ -203,96 +203,96 @@ DevOps & Ferramentas:
 • Postman
 • Power BI
 
-Design & Multimídia:
+Design & Multimedia:
 • Adobe Premiere
 • CapCut
 • Canva
-• Design Gráfico
-• Edição de Vídeo
+• Graphic Design
+• Video Editing
 `;
 
     const interestsData = `
-=== ÁREAS DE INTERESSE ===
+=== AREAS OF INTEREST ===
 
-Desenvolvimento Web:
-• Aplicações web modernas e responsivas
+Web Development:
+• Modern and responsive web applications
 • Single Page Applications (SPA)
 • Progressive Web Apps (PWA)
-• Experiência do usuário (UX/UI)
+• User Experience (UX/UI)
 
 Backend Development:
-• APIs RESTful e GraphQL
-• Microserviços e arquitetura distribuída
-• Bancos de dados relacionais e NoSQL
-• Segurança e autenticação
+• RESTful APIs and GraphQL
+• Microservices and distributed architecture
+• Relational and NoSQL databases
+• Security and authentication
 
-Automação & Produtividade:
-• Scripts Python para automação
-• Ferramentas de produtividade
-• Otimização de processos
-• Integração de sistemas
+Automation & Productivity:
+• Python scripts for automation
+• Productivity tools
+• Process optimization
+• Systems integration
 
 Data Science & Analytics:
-• Análise de dados com Python
-• Visualização de dados
+• Data analysis with Python
+• Data visualization
 • Business Intelligence
-• Machine Learning (iniciante)
+• Machine Learning (beginner)
 
-Tecnologias Emergentes:
+Emerging Technologies:
 • Cloud Computing
-• DevOps e CI/CD
-• Containerização
-• Internet das Coisas (IoT)
+• DevOps and CI/CD
+• Containerization
+• Internet of Things (IoT)
 `;
 
     const projectsData = `
-=== PROJETOS TÉCNICOS ===
+=== TECHNICAL PROJECTS ===
 
-1. Sistema de Gestão de Tarefas
-   • Tecnologias: Python, Django, PostgreSQL, HTML/CSS, JavaScript
-   • Funcionalidades: CRUD completo, autenticação, dashboard
-   • Status: Concluído
-   • Repositório: github.com/pedrohenrique/sistema-tarefas
+1. Task Management System
+   • Technologies: Python, Django, PostgreSQL, HTML/CSS, JavaScript
+   • Features: Complete CRUD, authentication, dashboard
+   • Status: Completed
+   • Repository: github.com/pedrohenrique/sistema-tarefas
 
-2. API de Previsão do Tempo
-   • Tecnologias: JavaScript, Node.js, APIs REST
-   • Funcionalidades: Integração com APIs externas, cache, rate limiting
-   • Status: Em desenvolvimento
-   • Repositório: github.com/pedrohenrique/weather-api
+2. Weather Forecast API
+   • Technologies: JavaScript, Node.js, REST APIs
+   • Features: Integration with external APIs, cache, rate limiting
+   • Status: In development
+   • Repository: github.com/pedrohenrique/weather-api
 
-3. Plataforma de Blog Pessoal
-   • Tecnologias: React, Node.js, Firebase
-   • Funcionalidades: Sistema de comentários, tags, busca
-   • Status: Concluído
-   • Repositório: github.com/pedrohenrique/blog-platform
+3. Personal Blog Platform
+   • Technologies: React, Node.js, Firebase
+   • Features: Comment system, tags, search
+   • Status: Completed
+   • Repository: github.com/pedrohenrique/blog-platform
 
-4. Automação de Relatórios
-   • Tecnologias: Python, Pandas, Excel
-   • Funcionalidades: Geração automática de relatórios financeiros
-   • Status: Em uso na Secretaria de Saúde
-   • Repositório: Privado (uso interno)
+4. Report Automation
+   • Technologies: Python, Pandas, Excel
+   • Features: Automatic generation of financial reports
+   • Status: In use at the Health Secretariat
+   • Repository: Private (internal use)
 `;
 
     const helpData = `
-=== COMANDOS DISPONÍVEIS ===
+=== AVAILABLE COMMANDS ===
 
-Informações Pessoais:
-• cat sobre.txt     - Perfil técnico completo
-• skills           - Habilidades técnicas detalhadas
-• tecnologias      - Tecnologias e ferramentas
-• interesses       - Áreas de interesse
-• curriculo.pdf    - Baixar currículo em PDF
+Personal Information:
+• cat about.txt     - Complete technical profile
+• skills           - Detailed technical skills
+• technologies      - Technologies and tools
+• interests       - Areas of interest
+• resume.pdf    - Download resume in PDF
 
-Projetos:
-• projetos         - Lista de projetos técnicos
-• ls              - Localizar projetos na interface
+Projects:
+• projects         - List of technical projects
+• ls              - Locate projects in the interface
 
-Sistema:
-• clear           - Limpar terminal
-• help            - Mostrar esta ajuda
-• exit            - Voltar ao modo corporativo
+System:
+• clear           - Clear terminal
+• help            - Show this help
+• exit            - Return to corporate mode
 
-Dica: Use as setas ↑↓ para navegar no histórico de comandos.
+Tip: Use the ↑↓ arrows to easily navigate the command history.
 `;
 
     // --- Histórico de Comandos ---
@@ -317,12 +317,12 @@ Dica: Use as setas ↑↓ para navegar no histórico de comandos.
             // Mensagem de boas-vindas no modo hacker
             terminalOutput.innerHTML += `<pre style="color: #00BFFF;">
 ╔══════════════════════════════════════════════════════════════╗
-║                    MODO HACKER ATIVADO                  ║
+║                  HACKER MODE ACTIVATED                  ║
 ║                                                         ║
-║  Bem-vindo ao terminal de acesso técnico!               ║
-║  Digite 'help' para ver todos os comandos disponíveis.  ║
+║  Welcome to the technical access terminal!              ║
+║  Type 'help' to see all available commands.             ║
 ║                                                         ║
-║  Pressione 'exit' para retornar ao modo corporativo.    ║
+║  Press 'exit' to return to corporate mode.              ║
 ╚══════════════════════════════════════════════════════════════╝
 </pre>`;
             terminalOutput.scrollTop = terminalOutput.scrollHeight;
@@ -337,7 +337,7 @@ Dica: Use as setas ↑↓ para navegar no histórico de comandos.
             body.classList.add('corporate-mode');
             
             // Resetar terminal
-            terminalOutput.innerHTML = '<pre>Bem-vindo ao sistema. Digite \'help\' para ver os comandos.</pre>';
+            terminalOutput.innerHTML = '<pre>Welcome to the system. Type \'help\' to see commands.</pre>';
             commandHistory = [];
             historyIndex = -1;
             
@@ -351,9 +351,9 @@ Dica: Use as setas ↑↓ para navegar no histórico de comandos.
 
     // --- Event Listeners para Ativação do Modo Hacker ---
 
-    // Ativar modo hacker ao pressionar 'S'
+    // Ativar modo hacker ao pressionar 'Y'
     document.addEventListener('keydown', (event) => {
-        if ((event.key === 's' || event.key === 'S') && body.classList.contains('corporate-mode')) {
+        if ((event.key === 'y' || event.key === 'Y') && body.classList.contains('corporate-mode')) {
             // Verificar se não está digitando em um input
             if (document.activeElement.tagName !== 'INPUT' && 
                 document.activeElement.tagName !== 'TEXTAREA') {
@@ -451,46 +451,44 @@ Dica: Use as setas ↑↓ para navegar no histórico de comandos.
                 output = helpData;
                 break;
                 
-            case 'cat sobre.txt':
-            case 'sobre':
+            case 'cat about.txt':
+            case 'about':
                 output = aboutData;
                 break;
                 
             case 'skills':
-            case 'habilidades':
                 output = skillsData;
                 break;
                 
-            case 'tecnologias':
+            case 'technologies':
             case 'tech':
                 output = technologiesData;
                 break;
                 
-            case 'interesses':
+            case 'interests':
             case 'areas':
                 output = interestsData;
                 break;
                 
-            case 'projetos':
             case 'projects':
                 output = projectsData;
                 break;
                 
             case 'ls':
                 output = `
-Diretórios disponíveis:
-• /habilidades     - Seção de habilidades técnicas
-• /tecnologias     - Ferramentas e tecnologias
-• /interesses      - Áreas de interesse
-• /projetos        - Projetos técnicos (visíveis na interface)
+Available directories:
+• /skills          - Technical skills section
+• /technologies    - Tools and technologies
+• /interests       - Areas of interest
+• /projects        - Technical projects (visible on interface)
 
-Use 'cat [arquivo]' ou digite o nome da seção para mais detalhes.
-Role para cima na interface para ver os projetos técnicos visuais.`;
+Use 'cat [file]' or type the section name for more details.
+Scroll up on the interface to see visual technical projects.`;
                 break;
                 
-            case 'curriculo.pdf':
+            case 'resume.pdf':
             case 'cv':
-                output = 'Preparando download do currículo...';
+                output = 'Preparing resume download...';
                 // Simular download - substitua pelo link real do seu currículo
                 setTimeout(() => {
                     const link = document.createElement('a');
@@ -507,33 +505,33 @@ Role para cima na interface para ver os projetos técnicos visuais.`;
                 
             case 'exit':
             case 'quit':
-                output = 'Saindo do modo hacker... Retornando ao Inicio.';
+                output = 'Exiting hacker mode... Returning to Home.';
                 setTimeout(() => {
                     exitHackerMode();
                 }, 2000);
                 break;
                 
             case 'whoami':
-                output = 'pedro@portfolio:~$ Desenvolvedor em transição, apaixonado por tecnologia e soluções inovadoras.';
+                output = 'pedro@portfolio:~$ Developer in transition, passionate about technology and innovative solutions.';
                 break;
                 
             case 'date':
-                output = new Date().toLocaleString('pt-BR');
+                output = new Date().toLocaleString('en-US');
                 break;
                 
             case 'pwd':
-                output = '/home/pedro/portfolio/modo_hacker';
+                output = '/home/pedro/portfolio/hacker_mode';
                 break;
                 
             default:
-                output = `Comando não encontrado: '${command}'
-Digite 'help' para ver todos os comandos disponíveis.
+                output = `Command not found: '${command}'
+Type 'help' to see all available commands.
 
-Comandos sugeridos:
-• help - Lista de comandos
-• sobre - Informações pessoais
-• skills - Habilidades técnicas
-• projetos - Lista de projetos`;
+Suggested commands:
+• help - List of commands
+• about - Personal information
+• skills - Technical skills
+• projects - Project list`;
         }
         
         if (output) {
@@ -630,7 +628,7 @@ Comandos sugeridos:
         body.classList.add('loaded');
     }, 100);
 
-    console.log('🚀 Portfólio carregado com sucesso!');
-    console.log('💡 Pressione "S" para ativar o modo hacker');
-    console.log('🔧 Desenvolvido por Pedro Henrique');
+    console.log('🚀 Portfolio successfully loaded!');
+    console.log('💡 Press "Y" to activate hacker mode');
+    console.log('🔧 Developed by Pedro Henrique');
 });

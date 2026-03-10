@@ -1060,6 +1060,14 @@ body.hacker-mode .hacker-terminal-overlay {
     display: none;
 }
 
+.hacker-terminal-overlay.minimized .terminal-header {
+    cursor: pointer;
+}
+
+.hacker-terminal-overlay.minimized .terminal-header button {
+    display: none;
+}
+
 .hacker-terminal-container {
     width: 100%;
     height: 100%;
@@ -1291,11 +1299,15 @@ body.hacker-mode::before {
 
     .projects-filter {
         gap: 10px;
+        flex-wrap: wrap; /* Permite que os botões quebrem de linha em telas pequenas */
+        justify-content: center;
     }
 
     .filter-btn {
         padding: 6px 15px;
         font-size: 0.9rem;
+        flex: 1 1 auto; /* Os botões podem crescer ou encolher */
+        text-align: center;
     }
 
     .terminal-footer pre {
@@ -1340,16 +1352,21 @@ body.hacker-mode::before {
 }
 
 @media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
     .hero-section h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        word-break: break-word;
     }
 
     .hero-subtitle {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .contact-form {
-        padding: 25px;
+        padding: 20px;
     }
 
     .hacker-project-card {
